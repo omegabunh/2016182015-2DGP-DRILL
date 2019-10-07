@@ -50,17 +50,17 @@ while running:
     frame = (frame + 1) % 8
 
     if x1 < x and y1 < y:
-        x1 += (x - x1) / 3
-        y1 += (y - y1) / 3
+        x1 += (x - x1) / 10
+        y1 += (y - y1) / 10
     elif x1 < x and y < y1:
-        x1 += (x - x1) / 3
-        y1 -= (y1 - y) / 3
+        x1 += (x - x1) / 10
+        y1 -= (y1 - y) / 10
     elif x < x1 and y1 < y:
-        x1 -= (x1 - x) / 3
-        y1 += (y - y1) / 3
+        x1 -= (x1 - x) / 10
+        y1 += (y - y1) / 10
     elif x < x1 and y < y1:
-        x1 -= (x1 - x) / 3
-        y1 -= (y1 - y) / 3
+        x1 -= (x1 - x) / 10
+        y1 -= (y1 - y) / 10
 
     delay(0.05)
 
