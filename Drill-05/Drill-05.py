@@ -62,7 +62,6 @@ while running:
         x1 -= (x1 - x) / 3
         y1 -= (y1 - y) / 3
 
-
     delay(0.05)
 
 close_canvas()
