@@ -19,8 +19,7 @@ def move(p1, p2, p3, p4):
         clear_canvas()
         kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         character.clip_draw(frame * 100, 100 * side, 100, 100, x, y)
-        for i in range(0, 10):
-            character.clip_draw(frame * 100, 100 * side, 100, 100, p2[0], p2[1])
+
         update_canvas()
         frame = (frame + 1) % 8
         delay(0.05)
