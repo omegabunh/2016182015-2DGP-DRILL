@@ -67,7 +67,6 @@ while running:
     for Bball in bigball:
         Bball.update()
     clear_canvas()
-
     grass.draw()
     for boy in team:
         boy.draw()
