@@ -16,29 +16,29 @@ class Boy:
         self.x += 5
     def draw(self):
         self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
-class BigBall:
+
+class Big_ball:
     def __init__(self):
-        self.x, self.y = random.randint(0,799), 599
+        self.x, self.y = random.randint(0, 799), 599
         self.image = load_image('ball41x41.png')
     def update(self):
         if self.y > 70:
-            self.y -= random.randint(1, 20)
-        elif self.x < 70:
+            self.y -= random.randint(1, 10)
+        elif self.y < 60:
             self.y = 70
     def draw(self):
         self.image.draw(self.x, self.y)
-class SmallBall:
+class Small_ball:
     def __init__(self):
-        self.x, self.y = random.randint(0,799), 599
+        self.x, self.y = random.randint(0, 799), 599
         self.image = load_image('ball21x21.png')
     def update(self):
         if self.y > 60:
-            self.y -= random.randint(1, 20)
-        elif self.x < 60:
+            self.y -= random.randint(1, 10)
+        elif self.y < 60:
             self.y = 60
     def draw(self):
         self.image.draw(self.x, self.y)
-
 def handle_events():
     global running
     events = get_events()
@@ -50,32 +50,30 @@ def handle_events():
 
 # initialization code
 open_canvas()
-
 team = [Boy() for i in range(11)]
 grass = Grass()
 t = random.randint(3, 17)
-bigball = [BigBall() for i in range(20 - t)]
-smallball = [SmallBall() for i in range(t)]
+smallballs = [Small_ball() for i in range(20 - t)]
+bigballs = [Big_ball() for i in range(t)]
 running = True
 # game main loop code
 while running:
     handle_events()
     for boy in team:
         boy.update()
-    for Sball in smallball:
-        Sball.update()
-    for Bball in bigball:
-        Bball.update()
+    for ball in smallballs:
+        ball.update()
+    for ball in bigballs:
+        ball.update()
     clear_canvas()
     grass.draw()
     for boy in team:
         boy.draw()
-    for Sball in smallball:
-        Sball.draw()
-    for Bball in bigball:
-        Bball.draw()
+    for ball in smallballs:
+        ball.draw()
+    for ball in bigballs:
+        ball.draw()
     update_canvas()
-
     delay(0.05)
 # finalization code
 close_canvas()
