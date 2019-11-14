@@ -15,7 +15,7 @@ while True:
         update_canvas()
         frame = (frame + 1) % 8
         x = x + 5
-        delay(0.01)
+        delay(0.05)
         get_events()
     while x > 0:
         clear_canvas()
@@ -25,7 +25,7 @@ while True:
         update_canvas()
         frame = (frame + 1) % 8
         x = x - 5
-        delay(0.01)
+        delay(0.05)
         get_events()
 
 

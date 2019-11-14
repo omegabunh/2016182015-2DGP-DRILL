@@ -61,7 +61,7 @@ while running:
     elif x < x1 and y < y1:
         x1 -= (x1 - x) / 10
         y1 -= (y1 - y) / 10
-        
+
     delay(0.05)
 
 close_canvas()

@@ -29,7 +29,6 @@ class Big_ball:
     def draw(self):
         self.image.draw(self.x, self.y)
 class Small_ball:
-    def __init__(self):
         self.x, self.y = random.randint(0, 799), 599
         self.image = load_image('ball21x21.png')
     def update(self):
