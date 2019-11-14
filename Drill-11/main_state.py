@@ -102,6 +102,7 @@ def update():
         boy.jumping = True
     if collide(grass, boy):
         boy.stop()
+        boy.jumping = True
 
 def draw():
     clear_canvas()

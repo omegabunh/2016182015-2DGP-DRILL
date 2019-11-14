@@ -11,6 +11,8 @@ RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
 RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
 RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
 
+GRAVITY_PPS = (9.8 * PIXEL_PER_METER)
+
 TIME_PER_ACTION = 0.5
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAMES_PER_ACTION = 8
@@ -25,9 +27,6 @@ key_event_table = {
     (SDL_KEYUP, SDLK_LEFT): LEFT_UP,
     (SDL_KEYDOWN, SDLK_SPACE): SPACE
 }
-
-
-# Boy States
 
 class IdleState:
 
@@ -47,7 +46,7 @@ class IdleState:
     def exit(boy, event):
         if event == SPACE:
             boy.jumping = True
-            boy.jump_y = 300
+            boy.jump_y = 350
             boy.jump()
 
     @staticmethod
@@ -83,7 +82,7 @@ class RunState:
     def exit(boy, event):
         if event == SPACE:
             boy.jumping = True
-            boy.jump_y = 300
+            boy.jump_y = 350
             boy.jump()
 
     @staticmethod
@@ -145,15 +144,15 @@ class Boy:
         self.event_que = []
         self.cur_state = IdleState
         self.jump_y = 0
-        self.jump_force = 300
         self.jumping = False
         self.cur_state.enter(self, None)
 
     def jump(self):
         if self.jumping:
             self.y += self.jump_y * game_framework.frame_time
-            self.jump_y -= 280 * game_framework.frame_time
+            self.jump_y -= GRAVITY_PPS * game_framework.frame_time
             self.jumping = False
+
     def get_bb(self):
         return self.x - 25, self.y - 35, self.x + 25, self.y + 40
 
