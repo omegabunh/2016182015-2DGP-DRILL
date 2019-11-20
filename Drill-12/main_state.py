@@ -17,6 +17,7 @@ boy = None
 zombie = None
 balls = []
 
+
 def collide(a, b):
     # fill here
     left_a, bottom_a, right_a, top_a = a.get_bb()
@@ -28,7 +29,6 @@ def collide(a, b):
     if bottom_a > top_b: return False
 
     return True
-
 
 
 def get_boy():
@@ -55,8 +55,10 @@ def enter():
 def exit():
     game_world.clear()
 
+
 def pause():
     pass
+
 
 def resume():
     pass
@@ -90,8 +92,7 @@ def update():
 
         if collide(boy, zombie):
             if boy.hp > zombie.hp:
-                #del zombie
-                print('player win')
+                game_world.remove_object(zombie)
             else:
                 game_framework.quit()
 
