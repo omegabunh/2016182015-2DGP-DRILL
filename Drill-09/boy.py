@@ -121,12 +121,6 @@ next_state_table = {
     DashState: {RIGHT_UP: IdleState, RIGHT_DOWN: IdleState, LEFT_DOWN: IdleState, LEFT_UP: IdleState, SHIFT_UP: RunState, SHIFT_DOWN: RunState}
 }
 
-
-
-
-
-
-
 class Boy:
 
     def __init__(self):
